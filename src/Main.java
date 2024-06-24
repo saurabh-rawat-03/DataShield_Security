@@ -170,6 +170,7 @@ public class Main extends javax.swing.JFrame {
         try {
             ModelUser user = service.login(data);
             if(user != null){
+                loginLoading();
                 this.dispose();
                 Home.main(user);
             }else{
@@ -181,6 +182,22 @@ public class Main extends javax.swing.JFrame {
 
         }
     }
+    
+    private void loginLoading(){
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                loading.setVisible(true);
+                try{
+                    Thread.sleep(5000);
+                    loading.setVisible(false);
+                }catch(InterruptedException e){
+                    System.out.println(e);
+                }
+            }
+        }).start();
+    }
+    
     
     private void sendMain(ModelUser user){
         new Thread(new Runnable() {
