@@ -19,6 +19,23 @@ public class ServiceUser {
     public ServiceUser() {
         con = DatabaseConnection.getInstance().getConnection();
     }
+    
+    public ModelUser login(ModelLogin login) throws SQLException{        
+        ModelUser data = null;
+        PreparedStatement p = con.prepareStatement("SELECT `userID`, `userName`, `userEmail` FROM `userInfo` where userEmail=? and userPassword = ?");
+        p.setString(1, login.getEmail());
+        p.setString(2, login.getPassword());
+        ResultSet r = p .executeQuery();
+        if(r.next()){
+            int userID = r.getInt(1);
+            String userName = r.getString(2);
+            String userEmail = r.getString(3);
+            data = new ModelUser(userID, userName, userEmail, "");
+        }
+        p.close();
+        r.close();
+        return data;
+    }
 
     public void insertUser(ModelUser user) throws SQLException {
         PreparedStatement p = con.prepareStatement("INSERT INTO `userInfo`(`userName`, `userEmail`, `userPassword`, `verifyCode`) VALUES (?, ?, ?, ?)", PreparedStatement.RETURN_GENERATED_KEYS);
@@ -106,6 +123,13 @@ public class ServiceUser {
         p.close();
         return verify;
     }
+    
+    
+    
+    
+    
+    
+    //extra
     
     
     public void sendDataToDB(ModelUser user) throws SQLException{

@@ -2,6 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+import Classes.ModelUser;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.PreparedStatement;
@@ -290,9 +291,9 @@ public class Login extends javax.swing.JFrame {
                 System.out.println(id+" " + emailID);
                 menu.setVisible(true);
                 JOptionPane.showMessageDialog(null, "Loged in successfully");
-                
-                Home hm = new Home();
-                hm.jLabel2.setText(emailID);
+                ModelUser user = new ModelUser();
+                Home hm = new Home(user);
+                hm.lblUser.setText(emailID);
                 hm.setVisible(true);
                 this.setVisible(false);
                 

@@ -4,7 +4,6 @@ import Classes.ModelLogin;
 import Classes.ModelMessage;
 import Classes.ServiceUser;
 import Classes.ModelUser;
-import Classes.ServiceMail;
 import java.sql.SQLException;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -168,7 +167,19 @@ public class Main extends javax.swing.JFrame {
     
     private void login(){
         ModelLogin data = loginAndRegister.getDataLogin();
-        System.out.println("email " + data.getEmail() + "Pass "+data.getPassword());
+        try {
+            ModelUser user = service.login(data);
+            if(user != null){
+                this.dispose();
+                Home.main(user);
+            }else{
+                showMessage(Message.MessageType.ERROR, "Email or Password is incorrect");
+
+            }
+        } catch (Exception e) {
+            showMessage(Message.MessageType.ERROR, "Error Loging-In");
+
+        }
     }
     
     private void sendMain(ModelUser user){
