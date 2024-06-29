@@ -15,6 +15,8 @@ import javax.swing.JOptionPane;
 public class ServiceUser {
 
     private final Connection con;
+    private ModelUser user;
+//    private ModelLogin loginUser = new;
 
     public ServiceUser() {
         con = DatabaseConnection.getInstance().getConnection();
@@ -22,6 +24,7 @@ public class ServiceUser {
     
     public ModelUser login(ModelLogin login) throws SQLException{        
         ModelUser data = null;
+        user = new ModelUser();
         PreparedStatement p = con.prepareStatement("SELECT `userID`, `userName`, `userEmail` FROM `userInfo` where userEmail=? and userPassword = ?");
         p.setString(1, login.getEmail());
         p.setString(2, login.getPassword());
@@ -31,6 +34,7 @@ public class ServiceUser {
             String userName = r.getString(2);
             String userEmail = r.getString(3);
             data = new ModelUser(userID, userName, userEmail, "");
+            user.setUserName(userName);
         }
         p.close();
         r.close();

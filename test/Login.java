@@ -293,7 +293,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "Loged in successfully");
                 ModelUser user = new ModelUser();
                 Home hm = new Home(user);
-                hm.lblUser.setText(emailID);
+//                hm.lblUser.setText(emailID);
                 hm.setVisible(true);
                 this.setVisible(false);
                 
