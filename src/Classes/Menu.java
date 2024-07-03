@@ -28,9 +28,10 @@ public class Menu extends JComponent{
     }
     private MigLayout layout;
     private String[][] menuItems = new String[][]{
+        
         {"Dashboard"},
-        {"Email", "Inbox", "Read", "Compost"},
-        {"Chat"},
+        {"Encryption", "Caesar Cipher", "Vigener Cipher", "RSA"},
+        {"Decryption", "Ceaser Cipher", "Vigener Cipher", "RSA"},
         {"Calendar"},
         {"UI Kit", "Accordion", "Alerts", "Badges", "Breadcrumbs", "Buttons", "Button group"},
         {"Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert"},
@@ -38,7 +39,8 @@ public class Menu extends JComponent{
         {"Charts", "Apex", "Flot", "Peity", "Sparkline"},
         {"Table", "Basic Tables", "Data Table"},
         {"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
-        {"Special Pages", "Blank page", "Faq", "Invoice", "Profile", "Pricing", "Timeline"}
+        {"Contact Us"}
+            
     };
     
     public Menu() {

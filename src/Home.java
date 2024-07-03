@@ -12,15 +12,23 @@ public class Home extends javax.swing.JFrame {
         
         this.user = user;
         initComponents();
+        String key = user.getVerifyCode();
         menu3.setEvent(new MenuEvent() {
             @Override
             public void selected(int index, int subIndex) {
-//                if(index == 0){
-//                    showForm(new HomeForm());
-//                }else{
-//                    
-//                }
-                showForm(new HomeForm("Form: " + index + " " + subIndex, user.getUserName()));
+                if(index == 0){
+                    showForm(new HomeForm("Form: " + index + " " + subIndex, user.getUserName(), user.getEmail(), user.getUserID(), key));
+                }else if(index == 1){   
+                    if(subIndex == 1){
+                        showForm(new CeaserCipher(key));
+                    }else if(subIndex == 2){
+                        showForm(new VigenerCipher());
+                    }
+                }else if(index == 2){
+                    if(subIndex == 1){
+                        showForm(new CeaserCipherDec());
+                    }
+                }
             }
         });
         getContentPane().setBackground(new Color(255, 255, 255));

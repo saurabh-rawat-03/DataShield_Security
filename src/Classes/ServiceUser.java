@@ -25,7 +25,7 @@ public class ServiceUser {
     public ModelUser login(ModelLogin login) throws SQLException{        
         ModelUser data = null;
         user = new ModelUser();
-        PreparedStatement p = con.prepareStatement("SELECT `userID`, `userName`, `userEmail` FROM `userInfo` where userEmail=? and userPassword = ?");
+        PreparedStatement p = con.prepareStatement("SELECT `userID`, `userName`, `userEmail`, `verifyCode` FROM `userInfo` where userEmail=? and userPassword = ?");
         p.setString(1, login.getEmail());
         p.setString(2, login.getPassword());
         ResultSet r = p .executeQuery();
@@ -33,8 +33,11 @@ public class ServiceUser {
             int userID = r.getInt(1);
             String userName = r.getString(2);
             String userEmail = r.getString(3);
+            String verifyCode = r.getString(4);
             data = new ModelUser(userID, userName, userEmail, "");
             user.setUserName(userName);
+            data.setVerifyCode(verifyCode);
+//            System.out.println(user.getVerifyCode());
         }
         p.close();
         r.close();
