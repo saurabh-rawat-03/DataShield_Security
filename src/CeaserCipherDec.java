@@ -1,6 +1,9 @@
 
 public class CeaserCipherDec extends javax.swing.JPanel {
 
+    static final String ALPHA="ABCDEFGHIJKLMNOPQRSTUVQXYZ";
+    static final String alpha="abcdefghijklmnopqrstuvwxyz";
+
     
     public CeaserCipherDec() {
 //        myTextField1.setHint("Enter Decryption Key here");
@@ -155,20 +158,49 @@ public class CeaserCipherDec extends javax.swing.JPanel {
 
     }//GEN-LAST:event_decryptBtnActionPerformed
 
-    private String decrypt(String data, int key){
-        
-        int len = data.length();
-        String output="";
-        for(int i=0; i<len; i++){
-            int tp = data.charAt(i);
-            int x = tp-97;
-            int cp = (x - key)  % 26;
-            int cpas = cp + 97;
-            char tempcp = (char) cpas;
-            output = output + tempcp;
+    private String decrypt(String e, int key){
+        int n=e.length();
+
+        String p="";//String to store the decrypted data
+
+        for(int i=0;i<n;i++){
+            char b;
+            char a=e.charAt(i);
+            int x;
+
+            //To check if character is in UpperCase
+            if(Character.isUpperCase(a)){
+                x = ALPHA.indexOf(a);
+                if(x!=-1){
+                    x=(x-key)%26;//To produce the character according to the key
+                    if(x<0){
+                        x=x+26;
+                    }
+                }
+                b=ALPHA.charAt(x);
+                p=p+b;
+            }
+
+            //To check if character is in LowerCase
+            else if(Character.isLowerCase(a)){
+                x=alpha.indexOf(a);
+                if(x!=-1){
+                    x=(x-key)%26;//To produce the character according to the key
+                    if(x<0){
+                        x=x+26;
+                    }
+                }
+                b=alpha.charAt(x);
+                p=p+b;
+            }
+            
+            //To check if  any special characters are present
+            else if((int) e.charAt(i) == 32){
+                p = p + e.charAt(i);
+            }
         }
-        
-        return output;
+
+        return p;
         
     }
 
