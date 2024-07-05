@@ -27,6 +27,8 @@ public class Home extends javax.swing.JFrame {
                 }else if(index == 2){
                     if(subIndex == 1){
                         showForm(new CeaserCipherDec());
+                    }else if(subIndex == 2){
+                        showForm(new VigenerCipherDec());
                     }
                 }
             }

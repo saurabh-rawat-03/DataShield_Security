@@ -5,14 +5,13 @@
         <group>
             <file>file:/D:/netbeans/DSS/src/CeaserCipherDec.java</file>
             <file>file:/D:/netbeans/DSS/src/CeaserCipher.java</file>
+            <file>file:/D:/netbeans/DSS/src/VigenerCipherDec.java</file>
             <file>file:/D:/netbeans/DSS/src/Classes/Menu.java</file>
             <file>file:/D:/netbeans/DSS/src/Home.java</file>
             <file>file:/D:/netbeans/DSS/src/Main.java</file>
-            <file>file:/D:/netbeans/DSS/src/Classes/ModelUser.java</file>
             <file>file:/D:/netbeans/DSS/src/Classes/ServiceUser.java</file>
             <file>file:/D:/netbeans/DSS/src/HomeForm.java</file>
             <file>file:/D:/netbeans/DSS/src/VigenerCipher.java</file>
-            <file>file:/D:/netbeans/DSS/src/Classes/ModelLogin.java</file>
         </group>
     </open-files>
 </project-private>
