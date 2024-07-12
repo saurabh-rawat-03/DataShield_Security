@@ -31,6 +31,10 @@ public class Home extends javax.swing.JFrame {
                     }else if(subIndex == 2){
                         showForm(new VigenerCipherDec());
                     }
+                }else if(index == 3){
+                    showForm(new ImageEnc());
+                }else if(index == 4){
+                    showForm(new ImageDec());
                 }
             }
         });

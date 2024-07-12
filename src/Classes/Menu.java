@@ -32,13 +32,8 @@ public class Menu extends JComponent{
         {"Dashboard"},
         {"Encryption", "Caesar Cipher", "Vigener Cipher", "RSA"},
         {"Decryption", "Caeser Cipher", "Vigener Cipher", "RSA"},
-        {"Calendar"},
-        {"UI Kit", "Accordion", "Alerts", "Badges", "Breadcrumbs", "Buttons", "Button group"},
-        {"Advanced UI", "Cropper", "Owl Carousel", "Sweet Alert"},
-        {"Forms", "Basic Elements", "Advanced Elements", "SEditors", "Wizard"},
-        {"Charts", "Apex", "Flot", "Peity", "Sparkline"},
-        {"Table", "Basic Tables", "Data Table"},
-        {"Icons", "Feather Icons", "Flag Icons", "Mdi Icons"},
+        {"Image Encryption"},
+        {"Image Decryption"},
         {"Contact Us"}
             
     };
